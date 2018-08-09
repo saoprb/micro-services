@@ -1,6 +1,6 @@
 package com.sao.dentalappointment.appointment.domain.valueobject;
 
-import com.sao.dentalappointment.appointment.cross_cutting_concerns.DateTimeRangeException;
+import com.sao.dentalappointment.appointment.sharedkernel.exceptions.DateTimeRangeException;
 import com.sao.dentalappointment.appointment.domain.interfaces.IValueObject;
 import lombok.Value;
 

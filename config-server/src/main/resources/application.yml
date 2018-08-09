@@ -5,4 +5,5 @@ spring:
     config:
       server:
         git:
-          uri: file:///${user.home}/workspace/micro-services/config
+          uri: file:///${user.home}/workspace/micro-services
+          searchPaths: config

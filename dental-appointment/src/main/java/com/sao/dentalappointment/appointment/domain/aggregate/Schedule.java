@@ -18,8 +18,7 @@ public class Schedule implements IAggregate {
     public Appointment scheduleAnAppointment(final LocalDateTime start, final LocalDateTime end,
                                              final Patient patient, final Client client) {
         client.setPatient(patient);
-        StartEnd startEnd = new StartEnd(start, end);
-        Appointment appointment = new Appointment(client, startEnd);
+        Appointment appointment = new Appointment(client, new StartEnd(start, end));
         return appointment;
     }
 }

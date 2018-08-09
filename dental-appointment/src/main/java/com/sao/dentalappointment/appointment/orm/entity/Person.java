@@ -11,15 +11,24 @@ import javax.persistence.Id;
 @Entity
 @Data
 @AllArgsConstructor
-public class Client {
+public class Person {
 
     @Id
     @GeneratedValue
-    private Long clientId;
-
-    @Column
     private Long personId;
 
     @Column
-    private Long patientId;
+    private String given;
+
+    @Column
+    private String surname;
+
+    @Column
+    private Character initial;
+
+    @Column
+    private String email;
+
+    @Column
+    private Integer age;
 }

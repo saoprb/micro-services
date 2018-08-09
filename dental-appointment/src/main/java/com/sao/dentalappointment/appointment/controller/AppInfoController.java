@@ -5,18 +5,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class AppInfoController {
 
-    public static class AppInfo {
-
-        @Value("${app.version}")
-        public String appVersion;
-    }
+    @Value("${app.version}")
+    public String appVersion;
 
     @ResponseBody
     @RequestMapping("/info")
-    public AppInfo info() {
-        return new AppInfo();
+    public Map info() {
+        Map map = new HashMap();
+        map.put("appVersion", appVersion);
+        return map;
     }
 }

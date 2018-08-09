@@ -4,6 +4,11 @@ spring:
   h2:
     console:
       enabled: true
+  cloud:
+    config:
+      uri: ${CONFIG_URI:http://localhost:8888}
+      label: master
+
 eureka:
   client:
     serviceUrl:

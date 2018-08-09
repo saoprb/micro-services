@@ -1,5 +1,6 @@
 package com.sao.dentalappointment.appointment.domain.aggregate;
 
+import com.sao.dentalappointment.appointment.domain.valueobject.Name;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -7,5 +8,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class Patient implements com.sao.dentalappointment.appointment.domain.aggregate.IEntity {
 
-    private String name;
+    private Name name;
+    private Integer age;
 }

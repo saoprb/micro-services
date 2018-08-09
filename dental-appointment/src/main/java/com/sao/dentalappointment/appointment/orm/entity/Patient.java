@@ -17,6 +17,6 @@ public class Patient {
     @GeneratedValue
     private Long patientId;
 
-    @Column(name = "NameText")
-    private String name;
+    @Column
+    private Long personId;
 }
