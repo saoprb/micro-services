@@ -1,11 +1,2 @@
-insert into Patient
-values(1, 'Patient 01');
-
-insert into Patient
-values(2, 'Patient 02');
-
-insert into Client
-values(1, 'Client 01', 1);
-
-insert into Client
-values(2, 'Client 02', 2);
+insert into Person
+values(default, 'Person 01 Given', 'Person 01 Surname', '1', 'person01@email.com', '1');

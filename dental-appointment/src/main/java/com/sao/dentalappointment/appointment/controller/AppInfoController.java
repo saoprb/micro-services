@@ -11,7 +11,7 @@ import java.util.Map;
 @Controller
 public class AppInfoController {
 
-    @Value("${app.version}")
+    @Value("${app.version:test}")
     public String appVersion;
 
     @ResponseBody

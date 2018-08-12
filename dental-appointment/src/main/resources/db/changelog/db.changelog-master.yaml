@@ -69,3 +69,97 @@ databaseChangeLog:
           onUpdate: Restrict
           referencedColumnNames: Person_Id
           referencedTableName: Person
+- changeSet:
+    id: create_table_Client
+    author: Sao
+    changes:
+    - createTable:
+        tableName: Client
+        columns:
+        - column:
+            name: Client_Id
+            type: int
+            autoIncrement: true
+            constraints:
+            - primaryKey: true
+            - nullable: false
+        - column:
+            name: Person_Id
+            type: int
+            constraints:
+            - nullable: false
+        - column:
+            name: Patient_Id
+            type: int
+            constraints:
+            - nullable: false
+- changeSet:
+    id: create_foreign_key_FK_Client_Person_Id_To_Person_Person_Id
+    author: Sao
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: Person_Id
+        baseTableName: Client
+        constraintName: create_foreign_key_FK_Client_Person_Id_To_Person_Person_Id
+        onDelete: Restrict
+        onUpdate: Restrict
+        referencedColumnNames: Person_Id
+        referencedTableName: Person
+- changeSet:
+    id: create_foreign_key_FK_Client_Patient_Id_To_Patient_Patient_Id
+    author: Sao
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: Patient_Id
+        baseTableName: Client
+        constraintName: create_foreign_key_FK_Client_Patient_Id_To_Patient_Patient_Id
+        onDelete: Restrict
+        onUpdate: Restrict
+        referencedColumnNames: Patient_Id
+        referencedTableName: Patient
+- changeSet:
+    id: create_table_Appointment
+    author: Sao
+    changes:
+    - createTable:
+        tableName: Appointment
+        columns:
+        - column:
+            name: Appointment_Id
+            type: int
+            autoIncrement: true
+            constraints:
+            - primaryKey: true
+            - nullable: false
+        - column:
+            name: Day_Of_Appointment
+            type: date
+            constraints:
+            - nullable: false
+        - column:
+            name: Start
+            type: time
+            constraints:
+            - nullable: false
+        - column:
+            name: End
+            type: time
+            constraints:
+            - nullable: false
+        - column:
+            name: Client_Id
+            type: int
+            constraints:
+            - nullable: false
+- changeSet:
+    id: create_foreign_key_FK_Appointment_Client_Id_To_Client_Client_Id
+    author: Sao
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: Client_Id
+        baseTableName: Appointment
+        constraintName: create_foreign_key_FK_Appointment_Client_Id_To_Client_Client_Id
+        onDelete: Restrict
+        onUpdate: Restrict
+        referencedColumnNames: Client_Id
+        referencedTableName: Client
