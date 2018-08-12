@@ -1,0 +1,71 @@
+databaseChangeLog:
+- changeSet:
+    id: create_table_Person
+    author: Sao
+    changes:
+    - createTable:
+        tableName: Person
+        columns:
+          - column:
+              name: Person_Id
+              type: int
+              autoIncrement: true
+              constraints:
+                - primaryKey: true
+                - nullable: false
+          - column:
+              name: Given
+              type: varchar(30)
+              constraints:
+                - nullable: false
+          - column:
+              name: Surname
+              type: varchar(30)
+              constraints:
+                - nullable: false
+          - column:
+              name: Initial
+              type: char(1)
+              constraints:
+               - nullable: true
+          - column:
+              name: Email
+              type: char(50)
+              constraints:
+               - nullable: false
+          - column:
+              name: Age
+              type: numeric(3,0)
+              constraints:
+               - nullable: false
+- changeSet:
+    id: create_table_Patient
+    author: Sao
+    changes:
+      - createTable:
+          tableName: Patient
+          columns:
+            - column:
+                name: Patient_Id
+                type: int
+                autoIncrement: true
+                constraints:
+                  - primaryKey: true
+                  - nullable: false
+            - column:
+                name: Person_Id
+                type: int
+                constraints:
+                  - nullable: false
+- changeSet:
+    id: create_foreign_key_FK_Patient_Person_Id_To_Person_Person_Id
+    author: Sao
+    changes:
+      - addForeignKeyConstraint:
+          baseColumnNames: Person_Id
+          baseTableName: Patient
+          constraintName: FK_Patient_Person_Id_To_Person_Person_Id
+          onDelete: Restrict
+          onUpdate: Restrict
+          referencedColumnNames: Person_Id
+          referencedTableName: Person

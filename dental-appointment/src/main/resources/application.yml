@@ -1,9 +1,6 @@
 spring:
   application:
     name: dental-appointment
-  h2:
-    console:
-      enabled: true
   cloud:
     config:
       uri: ${CONFIG_URI:http://localhost:8888}
@@ -13,3 +10,19 @@ eureka:
   client:
     serviceUrl:
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+
+---
+spring:
+  profiles: h2
+  h2:
+    console:
+      enabled: true
+
+---
+spring:
+  profiles: mariadb
+  datasource:
+    url: jdbc:mariadb://localhost:4306/dental_appointment
+    username: root
+    password: secret
+    driver-class-name: org.mariadb.jdbc.Driver
