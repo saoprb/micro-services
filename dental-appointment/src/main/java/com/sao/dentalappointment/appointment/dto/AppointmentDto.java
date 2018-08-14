@@ -6,9 +6,15 @@ import java.util.Date;
 
 @Data
 public class AppointmentDto {
-
-    private String patientName;
+    private String patientGiven;
+    private String patientSurname;
+    private Character patientInitial;
+    private String patientEmail;
     private String clientName;
+    private String clientGiven;
+    private String clientSurname;
+    private Character clientInitial;
+    private String clientEmail;
     private Date start;
     private Date end;
 }
